@@ -24,7 +24,7 @@ export class AwsCdkProjectPipelineStack extends cdk.Stack {
         output: sourceArtifact,
         owner: "ksgopalakrishnaPFG",
         repo: "aws-cdk-project-deploy",
-        branch: "master",
+        branch: "master"
       }),
 
       //how to build

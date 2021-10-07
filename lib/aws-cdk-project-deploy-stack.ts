@@ -20,7 +20,7 @@ export class AwsCdkProjectDeployStack extends cdk.Stack {
     const integartion = new LambdaIntegration(handler);
     api.root.addResource('hi').addMethod('GET',integartion);
 
-    new CfnOutput(this,'urlValue'{
+    new CfnOutput(this,'urlValue',{
       value : api.url
     })
   }
