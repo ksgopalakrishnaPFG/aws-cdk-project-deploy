@@ -9,9 +9,6 @@ public readonly urlOutput : CfnOutput;
 
     const stage  = new AwsCdkProjectDeployStack(this,'FirstWebService');
 
-    new CfnOutput(this,'StageUrlSuffix',{
-      value : stage.urlSuffix
-    })
-     
+    this.urlOutput = stage.urlOutput; 
   }
 }
