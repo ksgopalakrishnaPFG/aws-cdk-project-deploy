@@ -4,6 +4,7 @@ import * as codepipeline_actions from "@aws-cdk/aws-codepipeline-actions";
 import * as pipe_line from "@aws-cdk/pipelines";
 import { SecretValue } from "@aws-cdk/core";
 import { pipeline } from "stream";
+import { AwsCdkProjectPipelineStage } from "./aws-cdk-project-pipeline-stage";
 
 export class AwsCdkProjectPipelineStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -37,5 +38,9 @@ export class AwsCdkProjectPipelineStack extends cdk.Stack {
       }),
     });
     // The code that defines your stack goes here
+    const newStage = new AwsCdkProjectPipelineStage(this, 'CDKFirstStage',{
+      env :{account:'935483961059' ,region: 'us-east-1'}
+    });
+    pipeline.addApplicationStage(newStage);
   }
 }
