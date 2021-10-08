@@ -37,10 +37,9 @@ export class AwsCdkProjectPipelineStack extends cdk.Stack {
         buildCommand: "npm run build",
       }),
     });
-    // The code that defines your stack goes here
-    const newStage = new AwsCdkProjectPipelineStage(this, 'CDKFirstStage',{
+    // The code that defines your stack goes her
+    pipeline.addApplicationStage(new AwsCdkProjectPipelineStage(this, 'CDKFirstStage',{
       env :{account:'935483961059' ,region: 'us-east-1'}
-    });
-    pipeline.addApplicationStage(newStage);
+    }));
   }
 }
